@@ -1,0 +1,19 @@
+{
+    "rotas":{
+        "porta":["cozinha"], 
+        "cozinha":["porta", "corredor principal"],
+        "sala":["corredor principal", "quarto do wotton"],
+        "quarto do wotton":["corredor principal"],
+        "banheiro":["corredor principal"],
+        "corredor principal":["cozinha", "sala", "quarto do wotton", "banheiro"]
+    },
+    "entradas":["porta"],
+    "idsCanais": {
+        "porta":                    "887433358953574493",
+        "cozinha":                  "887433389274181632",
+        "corredor principal":       "887433443397492797",
+        "sala":                     "887433479028101191",
+        "quarto do wotton":         "887433501010427974",
+        "banheiro":                 "887433517691183114"
+    }
+}
