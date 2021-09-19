@@ -1,7 +1,9 @@
 const discord = require('discord.js');
 const ytdl = require('ytdl-core');
-const {joinVoiceChannel, getVoiceConnection} = require('@discordjs/voice');
-const token = 'ODg4MTEwNjExODY1Njk0MjM4.YUN7dg.ENYgMTbP-JF5CiQZiTL2dffjqb8';
+const {joinVoiceChannel, getVoiceConnection, createAudioResource, StreamType } = require('@discordjs/voice');
+const token = 'ODg4MTEwNjExODY1Njk0MjM4.YUN7dg.02evCs727tJNzT2ezliCNP67Uro';
+const { join } = require('path');
+const { createReadStream } = require('fs');
 const client = new discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 const vetorCarinho = ["Oba, adoro um carinho :3", "AU AU AU ME DÊ MAIS!", "Amo carinho no focinho! =D", "DELÍCIA AU AU"];
 const fs = require("fs");
@@ -10,16 +12,10 @@ fs.readFile("rotas.json", "utf-8", function(err, jsonString){
     rotas = JSON.parse(jsonString);
 });
 var idAtualChannel = "887433358953574493";
-var tempoMover = [10000, 50000];
+var tempoMover = [100000, 500000];
 
 client.on("messageCreate", async msg => {
     switch(msg.content){
-        case 'oi':
-            await msg.reply("AU AU");
-            break;
-        case 'oi flora':
-            await msg.reply("AU AU AU");
-            break;
         case 'iniciar':
             function intervaloFlora() {
                 let novoLugar = andar(idAtualChannel);
@@ -46,6 +42,14 @@ client.on("messageCreate", async msg => {
             const connection = getVoiceConnection(msg.guild.id);
             connection.destroy();
             break;
+        case '!latir':{
+                let resource = createAudioResource(join(__dirname, 'audio/calabocarapido.ogg'));
+                resource = createAudioResource(createReadStream(join(__dirname, 'audio/calabocarapido.ogg'), {
+                    inputType: StreamType.OggOpus,
+                }));
+
+                player.play(resource);
+            }
         }
 })
 client.once('ready', ()=>{
