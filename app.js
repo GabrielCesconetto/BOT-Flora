@@ -1,55 +1,50 @@
 const discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const {joinVoiceChannel, getVoiceConnection, createAudioResource, StreamType } = require('@discordjs/voice');
-const token = 'ODg4MTEwNjExODY1Njk0MjM4.YUN7dg.02evCs727tJNzT2ezliCNP67Uro';
+const token = 'OTA1NTY5NzEwNTEzNDc5Njkw.YYL_gw.-Azia4mpA-tpBZZh0OgMGY6mOoE';
 const { join } = require('path');
 const { createReadStream } = require('fs');
 const client = new discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
-const vetorCarinho = ["Oba, adoro um carinho :3", "AU AU AU ME DÊ MAIS!", "Amo carinho no focinho! =D", "DELÍCIA AU AU"];
+const vetorCarinho = ["Poderia me dar mais?", "Agora faz no pescoço! :)", "*Esfrega o focinho no seu rosto*", "*Morde*", "*Lambe sua cara*"];
 const fs = require("fs");
 var rotas;
 fs.readFile("rotas.json", "utf-8", function(err, jsonString){
     rotas = JSON.parse(jsonString);
 });
 var idAtualChannel = "887433358953574493";
-var tempoMover = [100000, 500000];
+var tempoMover = [180000, 1200000];
 
 client.on("messageCreate", async msg => {
     switch(msg.content){
         case 'iniciar':
-            function intervaloFlora() {
+            function intervaloChica() {
                 let novoLugar = andar(idAtualChannel);
                 idAtualChannel = novoLugar;
                 joinVoiceChannel({channelId:novoLugar,
                 guildId:msg.guild.id,
                 adapterCreator:msg.guild.voiceAdapterCreator});
-                setTimeout(intervaloFlora, rand(tempoMover[0], tempoMover[1]));
+                setTimeout(intervaloChica, rand(tempoMover[0], tempoMover[1]));
             }
             if (msg.channelId == "888155284344811561") {
                 joinVoiceChannel({channelId:idAtualChannel,
                 guildId:msg.guild.id,
                 adapterCreator:msg.guild.voiceAdapterCreator});
-                setTimeout(intervaloFlora, rand(tempoMover[0], tempoMover[1]));
+                setTimeout(intervaloChica, rand(tempoMover[0], tempoMover[1]));
             } else {
-                await msg.reply("AU AU AU NÃO CONSIGO AU AU");
+                await msg.reply("NÃO CONSIGO!");
             }
             break;
-        case '!carinho':
+        case 'chica!carinho':
             var vetorSort = Math.floor(Math.random() * vetorCarinho.length);
             await msg.reply(vetorCarinho[vetorSort]);
             break;
-        case 'sai':
+        case 'desligar':
             const connection = getVoiceConnection(msg.guild.id);
             connection.destroy();
             break;
-        case '!latir':{
-                let resource = createAudioResource(join(__dirname, 'audio/calabocarapido.ogg'));
-                resource = createAudioResource(createReadStream(join(__dirname, 'audio/calabocarapido.ogg'), {
-                    inputType: StreamType.OggOpus,
-                }));
-
-                player.play(resource);
-            }
+        case 'chica!goodgirl':
+            await msg.reply("https://imgur.com/v0ZQS6z");
+            break;
         }
 })
 client.once('ready', ()=>{
@@ -73,6 +68,6 @@ function andar(idAtual){
 }
 
 function rand (min, max) {
-    return Math.floor(Math.random() * ((max+1) - min) + min);
+    return Math.floor(Math.random() * ((max + 1) - min) + min);
 }
 
