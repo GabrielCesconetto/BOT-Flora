@@ -1,7 +1,7 @@
 const discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const {joinVoiceChannel, getVoiceConnection, createAudioResource, StreamType } = require('@discordjs/voice');
-const token = 'ODg4MTEwNjExODY1Njk0MjM4.YUN7dg.02evCs727tJNzT2ezliCNP67Uro';
+const token = '';
 const { join } = require('path');
 const { createReadStream } = require('fs');
 const client = new discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
