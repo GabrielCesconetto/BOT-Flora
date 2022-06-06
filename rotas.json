@@ -1,6 +1,7 @@
 {
     "rotas":{
-        "porta":["cozinha"], 
+        "garagem":["porta"],
+        "porta":["cozinha", "garagem"], 
         "cozinha":["porta", "corredor principal"],
         "sala":["corredor principal", "quarto do wotton"],
         "quarto do wotton":["corredor principal"],
@@ -9,6 +10,7 @@
     },
     "entradas":["porta"],
     "idsCanais": {
+        "garagem":                  "892608220470841345",
         "porta":                    "887433358953574493",
         "cozinha":                  "887433389274181632",
         "corredor principal":       "887433443397492797",

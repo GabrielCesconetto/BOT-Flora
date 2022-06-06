@@ -1,7 +1,7 @@
 const discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const {joinVoiceChannel, getVoiceConnection, createAudioResource, StreamType } = require('@discordjs/voice');
-const token = 'OTA1NTY5NzEwNTEzNDc5Njkw.YYL_gw.-Azia4mpA-tpBZZh0OgMGY6mOoE';
+const token = '';
 const { join } = require('path');
 const { createReadStream } = require('fs');
 const client = new discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
@@ -34,7 +34,7 @@ client.on("messageCreate", async msg => {
                 await msg.reply("NÃO CONSIGO!");
             }
             break;
-        case 'chica!carinho':
+        case 'flora!carinho':
             var vetorSort = Math.floor(Math.random() * vetorCarinho.length);
             await msg.reply(vetorCarinho[vetorSort]);
             break;
