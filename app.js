@@ -34,11 +34,11 @@ client.on("messageCreate", async msg => {
                 await msg.reply("AU AU AU NÃO CONSIGO AU AU");
             }
             break;
-        case '!carinho':
+        case 'flora!carinho':
             var vetorSort = Math.floor(Math.random() * vetorCarinho.length);
             await msg.reply(vetorCarinho[vetorSort]);
             break;
-        case 'sai':
+        case 'desligar':
             const connection = getVoiceConnection(msg.guild.id);
             connection.destroy();
             break;
